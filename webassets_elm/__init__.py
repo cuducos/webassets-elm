@@ -32,8 +32,8 @@ class Elm(ExternalTool):
 
         # write to a temp file
         tmp = mkstemp(suffix='.js')
-        bin = self.binary or 'elm-make'
-        write_args = [bin, kw['source_path'], '--output', tmp[1], '--yes']
+        elm_make = self.binary or 'elm-make'
+        write_args = [elm_make, kw['source_path'], '--output', tmp[1], '--yes']
         with TemporaryFile(mode='w') as fake_write_obj:
             self.subprocess(write_args, fake_write_obj)
 
