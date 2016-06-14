@@ -77,7 +77,7 @@ Don't forget to write and run tests:
 
 ```console
 npm i -g elm
-elm-package install elm-lang/html --yes
+elm-package install --yes
 python setup.py test
 ```
 
