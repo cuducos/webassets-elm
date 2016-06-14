@@ -1,0 +1,17 @@
+# Python
+*.pyc
+.eggs/
+webassets_elm.egg-info/
+build/
+dist/
+
+# Elm
+elm-stuff/
+
+# Python third-party packages
+.coverage
+cover/
+
+# OS, IDE & editor
+.DS_Store
+.ropeproject/

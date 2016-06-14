@@ -1,0 +1,23 @@
+language: python
+sudo: false  
+
+branches:
+  only:
+    - master
+
+python:
+  - "2.7"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+
+install:
+  - npm i -g elm
+  - elm-package install elm-lang/html --yes
+  - pip install nose webassets coveralls    
+
+script:
+  - nosetests --with-coverage --cover-package=webassets_elm
+
+after_success:
+  - coveralls
