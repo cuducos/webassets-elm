@@ -19,6 +19,12 @@ The `elm-make` binary has to be available from your system path. If it is not av
 * Install it globally using `$ npm i -g elm`
 * Configure an alternative path to `elm-make` with the `ELM_MAKE_BIN` variable (e.g. `node_modules/.bin/elm-make`)
 
+## Install
+
+```console
+python -m pip webassets-elm
+```
+
 ## Basic usage
 
 ```python
