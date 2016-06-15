@@ -31,13 +31,13 @@ class Elm(ExternalTool):
         """
 
         # write to a temp file
-        *_, tmp_path = mkstemp(suffix='.js')
+        tmp = mkstemp(suffix='.js')
         elm_make = self.binary or 'elm-make'
-        args = [elm_make, kw['source_path'], '--output', tmp_path, '--yes']
+        write_args = [elm_make, kw['source_path'], '--output', tmp[1], '--yes']
         with TemporaryFile(mode='w') as fake_write_obj:
-            self.subprocess(args, fake_write_obj)
+            self.subprocess(write_args, fake_write_obj)
 
         # read the temp file
         cat_or_type = 'type' if platform == 'win32' else 'cat'
-        read_args = [cat_or_type, tmp_path]
+        read_args = [cat_or_type, tmp[1]]
         self.subprocess(read_args, out)
