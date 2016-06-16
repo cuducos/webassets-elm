@@ -1,5 +1,5 @@
 {
-    "version": "0.1.1",
+    "version": "0.1.2",
     "summary": "Filter for compiling Elm files using Python webassets",
     "repository": "https://github.com/cuducos/webassets-elm.git",
     "license": "MIT",
