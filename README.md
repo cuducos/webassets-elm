@@ -16,8 +16,8 @@ Filter for compiling [Elm](http://elm-lang.org) files using [webassets](http://w
 
 The `elm-make` binary has to be available from your system path. If it is not available you can:
 
-* Install it globally using `$ npm i -g elm`
 * Configure an alternative path to `elm-make` with the `ELM_MAKE_BIN` variable (e.g. `node_modules/.bin/elm-make`)
+* Install it globally using `$ npm i -g elm` or with [any of these methods](http://elm-lang.org/install)
 
 ## Install
 
@@ -82,10 +82,15 @@ Feel free to [report an issue](http://github.com/cuducos/webassets-elm/issues), 
 Don't forget to write and run tests:
 
 ```console
-npm i -g elm
-elm-package install --yes
 python setup.py test
 ```
+
+You need `elm` binaries available to run the tests. [Install Elm](http://elm-lang.org/install) and then the required packeges packages:
+
+```console
+elm-package install
+```
+
 
 ## License
 
