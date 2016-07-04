@@ -6,18 +6,22 @@ branches:
     - master
 
 python:
-  - "2.7"
-  - "3.3"
-  - "3.4"
   - "3.5"
+
+env:
+  - TOXENV=py27
+  - TOXENV=py33
+  - TOXENV=py34
+  - TOXENV=py35
+  - TOXENV=cover
 
 install:
   - npm i -g elm
   - elm-package install elm-lang/html --yes
-  - pip install nose webassets coveralls    
+  - pip install tox     
 
 script:
-  - nosetests --with-coverage --cover-package=webassets_elm
+  - tox
 
 after_success:
   - coveralls

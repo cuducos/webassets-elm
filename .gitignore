@@ -10,6 +10,8 @@ elm-stuff/
 
 # Python third-party packages
 .coverage
+.python-version
+.tox
 cover/
 
 # OS, IDE & editor
