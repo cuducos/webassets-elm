@@ -1,0 +1,8 @@
+# Changelog
+
+* **0.1.3**
+    * Support for (actually tests ran also with) Python 3.3
+* **0.1.2**
+    * Better handling of temporary files
+* **0.1.1**
+    * Minor (possible) bugs fixes: avoid redefining `bin`
