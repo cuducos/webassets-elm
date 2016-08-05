@@ -15,6 +15,10 @@ env:
   - TOXENV=py35
   - TOXENV=cover
 
+cache:
+  directories:
+    - elm-stuff/build-artifacts
+
 install:
   - npm i -g elm
   - elm-package install elm-lang/html --yes
