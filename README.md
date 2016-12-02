@@ -22,7 +22,7 @@ The `elm-make` binary has to be available from your system path. If it is not av
 ## Install
 
 ```console
-python -m pip webassets-elm
+python -m pip install webassets-elm
 ```
 
 ## Basic usage
