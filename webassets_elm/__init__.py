@@ -1,3 +1,4 @@
+import os
 from sys import platform
 from tempfile import NamedTemporaryFile, TemporaryFile
 from webassets.filter import ExternalTool
@@ -31,7 +32,10 @@ class Elm(ExternalTool):
         """
 
         # write to a temp file
-        tmp = NamedTemporaryFile(suffix='.js', delete=True)
+        tmp = NamedTemporaryFile(suffix='.js', delete=False)
+        # if we don't close here, elm-make won't be able to access the file
+        # on Windows
+        tmp.close()
         elm_make = self.binary or 'elm-make'
         source = kw['source_path']
         write_args = [elm_make, source, '--output', tmp.name, '--yes']
@@ -42,4 +46,4 @@ class Elm(ExternalTool):
         cat_or_type = 'type' if platform == 'win32' else 'cat'
         read_args = [cat_or_type, tmp.name]
         self.subprocess(read_args, out)
-        tmp.close()
+        os.remove(tmp.name)
