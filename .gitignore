@@ -6,7 +6,9 @@ build/
 dist/
 
 # Elm
+elm-package.json
 elm-stuff/
+node_modules/
 
 # Python third-party packages
 .coverage

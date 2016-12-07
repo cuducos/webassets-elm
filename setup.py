@@ -27,6 +27,6 @@ setup(
     test_suite='nose.collector',
     tests_require=['nose'],
     url=REPO_URL,
-    version='0.1.3',
+    version='0.1.4',
     zip_safe=False
 )
