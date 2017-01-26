@@ -1,5 +1,7 @@
 # Changelog
 
+* **0.1.5**
+    * Support for Python 3.6
 * **0.1.4**
     * Fix a big related to read/write files in Windows
 * **0.1.3**
