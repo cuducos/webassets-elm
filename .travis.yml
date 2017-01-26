@@ -21,7 +21,7 @@ cache:
 
 install:
   - npm i -g elm
-  - elm-package install elm-lang/html --yes
+  - elm-package install --yes
   - pip install tox     
 
 script:

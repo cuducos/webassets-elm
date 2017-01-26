@@ -6,7 +6,6 @@ build/
 dist/
 
 # Elm
-elm-package.json
 elm-stuff/
 node_modules/
 
