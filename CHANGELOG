@@ -1,5 +1,7 @@
 # Changelog
 
+* **0.1.6**
+    * Remove support for Python 2
 * **0.1.5**
     * Support for Python 3.6
 * **0.1.4**
