@@ -11,13 +11,6 @@
 
 Filter for compiling [Elm](http://elm-lang.org) files using [webassets](http://webassets.readthedocs.org).
 
-## Requirements
-
-The `elm-make` binary has to be available from your system path. If it is not available you can:
-
-* Configure an alternative path to `elm-make` with the `ELM_MAKE_BIN` variable (e.g. `node_modules/.bin/elm-make`)
-* Install it globally using `$ npm i -g elm` or with [any of these methods](http://elm-lang.org/install)
-
 ## Install
 
 ```console
@@ -33,6 +26,11 @@ from webassets_elm import Elm
 register_filter(Elm)
 ```
 
+### Settings
+
+**Optionally** as an evironment variable you can have:
+
+* `ELM_MAKE_BIN`: alternative path to `elm-make` if it is **not** available globally (e.g. `node_modules/.bin/elm-make`) 
 
 ### Exampes
 
