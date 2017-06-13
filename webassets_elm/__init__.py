@@ -32,8 +32,8 @@ class Elm(ExternalTool):
         is in the system path.
 
     ELM_MAKE_CHANGE_DIRECTORY
-        If set, the filter will switch to the directory containing the target
-        Elm source file prior to compilation.
+        If set the filter will switch to ``source_path`` directory prior to
+        compilation.
 
     """
 

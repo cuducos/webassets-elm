@@ -1,5 +1,7 @@
 # Changelog
 
+**0.1.7**
+  * Add option to change directory before running `elm-make`
 **0.1.6**
   * Remove support for Python 2
 **0.1.5**

@@ -32,6 +32,8 @@ register_filter(Elm)
 
 * `ELM_MAKE_BIN`: alternative path to `elm-make` if it is **not** available globally (e.g. `node_modules/.bin/elm-make`) 
 
+* `ELM_MAKE_CHANGE_DIRECTORY`: if set the filter will switch to `source_path` directory (where the main `.elm` is located) prior to compilation
+
 ### Exampes
 
 #### Flask with [flask-assets](http://flask-assets.readthedocs.io/)
