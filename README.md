@@ -90,10 +90,3 @@ You need `elm` binaries available to run the tests. [Install Elm](http://elm-lan
 ```console
 elm-package install
 ```
-
-
-## License
-
-Copyright (c) 2016 Eduardo Cuducos
-
-Licensed under the [MIT License](LICENSE).
