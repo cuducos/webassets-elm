@@ -3,7 +3,6 @@
 [![Status: Beta](https://img.shields.io/pypi/status/webassets-elm.svg)](https://pypi.python.org/pypi/webassets-elm)
 [![Latest release](https://img.shields.io/pypi/v/webassets-elm.svg?style=flat)](https://pypi.python.org/pypi/webassets-elm)
 [![Python Version](https://img.shields.io/pypi/pyversions/webassets-elm.svg?style=flat)](https://pypi.python.org/pypi/webassets-elm) 
-[![Downloads](https://img.shields.io/pypi/dm/webassets-elm.svg?style=flat)](https://pypi.python.org/pypi/webassets-elm)
 [![License](https://img.shields.io/pypi/l/webassets-elm.svg?style=flat)](https://pypi.python.org/pypi/webassets-elm)
 
 [![Travis CI](https://img.shields.io/travis/cuducos/webassets-elm.svg?style=flat)](https://travis-ci.org/cuducos/webassets-elm)
@@ -34,9 +33,10 @@ from webassets_elm import Elm
 register_filter(Elm)
 ```
 
-### Flask example
 
-Using [flask-assets](http://flask-assets.readthedocs.io/):
+### Exampes
+
+#### Flask with [flask-assets](http://flask-assets.readthedocs.io/)
 
 ```python
 from flask import Flask
@@ -57,9 +57,7 @@ assets.register('elm_js', elm_js)
 
 ```
 
-### Django example 
-
-Using [django-assets](http://django-assets.readthedocs.org):
+#### Django with [django-assets](http://django-assets.readthedocs.org)
 
 ```python
 from django_assets import Bundle, register
@@ -85,7 +83,7 @@ Don't forget to write and run tests:
 python setup.py test
 ```
 
-You need `elm` binaries available to run the tests. [Install Elm](http://elm-lang.org/install) and then the required packeges packages:
+You need `elm` binaries available to run tests. [Install Elm](http://elm-lang.org/install) and then the required packages:
 
 ```console
 elm-package install
