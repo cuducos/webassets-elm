@@ -1,8 +1,9 @@
 from contextlib import contextmanager
-from os import chdir, getcwd, remove
+import os
 import os.path
 from sys import platform
 from tempfile import NamedTemporaryFile, TemporaryFile
+
 from webassets.filter import ExternalTool
 
 __all__ = ('Elm')
@@ -11,12 +12,12 @@ __all__ = ('Elm')
 @contextmanager
 def excursion(directory):
     """Context-manager that temporarily changes to a new working directory."""
-    old_dir = getcwd()
+    old_dir = os.getcwd()
     try:
-        chdir(directory)
+        os.chdir(directory)
         yield
     finally:
-        chdir(old_dir)
+        os.chdir(old_dir)
 
 
 class Elm(ExternalTool):
@@ -29,6 +30,10 @@ class Elm(ExternalTool):
     ELM_MAKE_BIN
         The path to the ``elm-make`` binary. If not set, assumes ``elm-make``
         is in the system path.
+
+    ELM_MAKE_CHANGE_DIRECTORY
+        If set, the filter will switch to the directory containing the target
+        Elm source file prior to compilation.
 
     """
 
@@ -52,15 +57,14 @@ class Elm(ExternalTool):
         elm_make = self.binary or 'elm-make'
         change_directory = bool(self.change_directory or False)
         source = kw['source_path']
-        source_dir = os.path.join(*os.path.split(source)[:-1])
-        exec_dir = source_dir if change_directory else getcwd()
+        source_dir = os.path.dirname(source)
+        exec_dir = source_dir if change_directory else os.getcwd()
         write_args = [elm_make, source, '--output', tmp.name, '--yes']
-        with excursion(exec_dir), \
-             TemporaryFile(mode='w') as fake_write_obj:
+        with excursion(exec_dir), TemporaryFile(mode='w') as fake_write_obj:
             self.subprocess(write_args, fake_write_obj)
 
         # read the temp file
         cat_or_type = 'type' if platform == 'win32' else 'cat'
         read_args = [cat_or_type, tmp.name]
         self.subprocess(read_args, out)
-        remove(tmp.name)
+        os.remove(tmp.name)
