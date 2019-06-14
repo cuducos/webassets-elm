@@ -1,4 +1,3 @@
-import os
 import os.path
 import shutil
 from io import StringIO
