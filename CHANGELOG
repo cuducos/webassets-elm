@@ -1,5 +1,8 @@
 # Changelog
 
+**0.2.0**
+  * Rework filter for elm 0.19 (`elm make`), with added support
+    for --optimize and --debug
 **0.1.7**
   * Add option to change directory before running `elm-make`
 **0.1.6**

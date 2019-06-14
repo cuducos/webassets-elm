@@ -27,6 +27,6 @@ with open('README.rst') as readme:
         test_suite='nose.collector',
         tests_require=['nose'],
         url='https://github.com/cuducos/webassets-elm',
-        version='0.1.7',
+        version='0.2.0',
         zip_safe=False
     )
