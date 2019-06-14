@@ -2,7 +2,7 @@
 
 **0.2.0**
   * Rework filter for elm 0.19 (`elm make`), with added support
-    for --optimize and --debug
+    for --optimize and --debug. Dropped support for Python 3.3
 **0.1.7**
   * Add option to change directory before running `elm-make`
 **0.1.6**
