@@ -53,7 +53,7 @@ class Elm(ExternalTool):
 
         with TemporaryDirectory("w+") as tempd:
             outf = os.path.join(tempd, "output.js")
-            write_args = [*args, '--output', outf]
+            write_args = args + ['--output', outf]
             self.subprocess(write_args, StringIO(), cwd=source_dir)
             with open(outf, "r") as inf:
                 shutil.copyfileobj(inf, out)
