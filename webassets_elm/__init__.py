@@ -22,10 +22,17 @@ class Elm(ExternalTool):
     ELM_OPTIMIZE (boolean)
         If set, turn on the elm compiler optimizations.
 
+    ELM_DEBUG (boolean)
+        If set, turn on the elm compiler time travelling debugger option.
+
     """
 
     name = 'elm'
-    options = {'binary': 'ELM_BIN', 'optimize': 'ELM_OPTIMIZE'}
+    options = {
+        'binary': 'ELM_BIN',
+        'optimize': 'ELM_OPTIMIZE',
+        'debug': 'ELM_DEBUG'
+    }
     max_debug_level = None
 
     def input(self, _in, out, **kw):
@@ -41,6 +48,8 @@ class Elm(ExternalTool):
         args = [elm, 'make', source]
         if self.optimize or False:
             args.append('--optimize')
+        if self.debug or False:
+            args.append('--debug')
 
         with TemporaryDirectory("w+") as tempd:
             outf = os.path.join(tempd, "output.js")
