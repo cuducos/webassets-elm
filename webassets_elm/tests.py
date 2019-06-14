@@ -36,3 +36,8 @@ class ElmFilterTestCase(TempEnvironmentHelper, TestCase):
     def test_elm_filter(self):
         self.mkbundle('main.elm', filters='elm', output='app.js').build()
         self.assertIn('I<3elm', self.get('app.js'))
+
+    def test_elm_filter_optimized(self):
+        self.env.config['ELM_OPTIMIZE'] = True
+        self.mkbundle('main.elm', filters='elm', output='app.js').build()
+        self.assertNotIn('Compiled in DEV mode', self.get('app.js'))

@@ -16,14 +16,17 @@ class Elm(ExternalTool):
 
     Supports the following external configuration:
 
-    ELM_BIN
+    ELM_BIN (binary)
         The path to the ``elm`` binary. If not set, assumes ``elm``
         is in the system path.
+
+    ELM_OPTIMIZE (boolean)
+        If set, turn on the elm compiler optimizations.
 
     """
 
     name = 'elm'
-    options = {'binary': 'ELM_BIN'}
+    options = {'binary': 'ELM_BIN', 'optimize': 'ELM_OPTIMIZE'}
     max_debug_level = None
 
     def input(self, _in, out, **kw):
@@ -36,10 +39,13 @@ class Elm(ExternalTool):
         elm = self.binary or 'elm'
         source = kw['source_path']
         source_dir = os.path.dirname(source)
+        args = [elm, 'make', source]
+        if self.optimize or False:
+            args.append('--optimize')
 
         with TemporaryDirectory("w+") as tempd:
             outf = os.path.join(tempd, "output.js")
-            write_args = [elm, 'make', source, '--output', outf]
+            write_args = [*args, '--output', outf]
             self.subprocess(write_args, StringIO(), cwd=source_dir)
             with open(outf, "r") as inf:
                 shutil.copyfileobj(inf, out)
