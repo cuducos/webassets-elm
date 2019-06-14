@@ -53,9 +53,11 @@ Settings
 
 **Optionally** as an evironment variable you can have:
 
-* `ELM_MAKE_BIN`: alternative path to `elm-make` if it is **not** available globally (e.g. `node_modules/.bin/elm-make`) 
+* `ELM_BIN`: alternative path to `elm` if it is **not** available globally (e.g. `node_modules/.bin/elm`)
 
-* `ELM_MAKE_CHANGE_DIRECTORY`: if set the filter will switch to `source_path` directory (where the main `.elm` is located) prior to compilation
+* `ELM_OPTIMIZE`: enable the elm compiler optimization option. Recomended for production output.
+
+* `ELM_DEBUG`: enable the elm compiler debug option.
 
 Examples
 ========
