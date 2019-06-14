@@ -59,7 +59,7 @@ class Elm(ExternalTool):
         source = kw['source_path']
         source_dir = os.path.dirname(source)
         exec_dir = source_dir if change_directory else os.getcwd()
-        write_args = [elm, 'make', source, '--output', tmp.name, '--yes']
+        write_args = [elm, 'make', source, '--output', tmp.name]
         with excursion(exec_dir), TemporaryFile(mode='w') as fake_write_obj:
             self.subprocess(write_args, fake_write_obj)
 
