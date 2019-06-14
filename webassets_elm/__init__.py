@@ -27,19 +27,19 @@ class Elm(ExternalTool):
 
     Supports the following external configuration:
 
-    ELM_MAKE_BIN
-        The path to the ``elm-make`` binary. If not set, assumes ``elm-make``
+    ELM_BIN
+        The path to the ``elm`` binary. If not set, assumes ``elm``
         is in the system path.
 
-    ELM_MAKE_CHANGE_DIRECTORY
+    ELM_CHANGE_DIRECTORY
         If set the filter will switch to ``source_path`` directory prior to
         compilation.
 
     """
 
     name = 'elm'
-    options = {'binary': 'ELM_MAKE_BIN',
-               'change_directory': 'ELM_MAKE_CHANGE_DIRECTORY'}
+    options = {'binary': 'ELM_BIN',
+               'change_directory': 'ELM_CHANGE_DIRECTORY'}
     max_debug_level = None
 
     def input(self, _in, out, **kw):
@@ -54,12 +54,12 @@ class Elm(ExternalTool):
         tmp.close()  # close it so windows can read it
 
         # write to a temp file
-        elm_make = self.binary or 'elm-make'
+        elm = self.binary or 'elm'
         change_directory = bool(self.change_directory or False)
         source = kw['source_path']
         source_dir = os.path.dirname(source)
         exec_dir = source_dir if change_directory else os.getcwd()
-        write_args = [elm_make, source, '--output', tmp.name, '--yes']
+        write_args = [elm, 'make', source, '--output', tmp.name, '--yes']
         with excursion(exec_dir), TemporaryFile(mode='w') as fake_write_obj:
             self.subprocess(write_args, fake_write_obj)
 
