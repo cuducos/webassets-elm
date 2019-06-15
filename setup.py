@@ -12,10 +12,11 @@ with open('README.rst') as readme:
             'Framework :: Flask',
             'Intended Audience :: Developers',
             'License :: OSI Approved :: MIT License',
-            'Programming Language :: Python :: 3.4',
             'Programming Language :: Python :: 3.5',
-            'Programming Language :: Python :: 3.6'
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7'
         ],
+        python_requires='>=3.5',
         description='Elm filter for webassets',
         install_requires=['webassets'],
         keywords=['elm', 'webassets', 'assets', 'django', 'flask'],
