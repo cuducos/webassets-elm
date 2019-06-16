@@ -55,9 +55,9 @@ Settings
 
 * `ELM_BIN`: alternative path to `elm` if it is **not** available globally (e.g. `node_modules/.bin/elm`)
 
-* `ELM_OPTIMIZE`: enable the elm compiler optimization option. Recomended for production output.
+* `ELM_OPTIMIZE`: enable the Elm compiler optimization option. Recommended for production output.
 
-* `ELM_DEBUG`: enable the elm compiler debug option.
+* `ELM_DEBUG`: enable the Elm compiler debug option.
 
 Examples
 ========

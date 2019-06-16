@@ -15,15 +15,16 @@ class Elm(ExternalTool):
 
     Supports the following external configuration:
 
-    ELM_BIN (binary)
+    ELM_BIN
         The path to the ``elm`` binary. If not set, assumes ``elm``
         is in the system path.
 
     ELM_OPTIMIZE (boolean)
-        If set, turn on the elm compiler optimizations.
+        If set to True, turns on the Elm compiler optimizations.
 
     ELM_DEBUG (boolean)
-        If set, turn on the elm compiler time travelling debugger option.
+        If set to True, turns on the Elm compiler time traveling debugger
+        option.
 
     """
 
@@ -38,7 +39,7 @@ class Elm(ExternalTool):
     def input(self, _in, out, **kw):
         """
         Currently Elm does not write to stdout
-        (hthttps://github.com/elm-lang/elm-make/issues/177), so we need to
+        (https://github.com/elm-lang/elm-make/issues/177), so we need to
         write the compiled contents to a temporary file and then read it in
         order to output to stdout.
         """
@@ -46,14 +47,14 @@ class Elm(ExternalTool):
         source = kw['source_path']
         source_dir = os.path.dirname(source)
         args = [elm, 'make', source]
-        if self.optimize or False:
+        if self.optimize:
             args.append('--optimize')
-        if self.debug or False:
+        if self.debug:
             args.append('--debug')
 
-        with TemporaryDirectory("w+") as tempd:
-            outf = os.path.join(tempd, "output.js")
-            write_args = args + ['--output', outf]
-            self.subprocess(write_args, StringIO(), cwd=source_dir)
-            with open(outf, "r") as inf:
-                shutil.copyfileobj(inf, out)
+        with TemporaryDirectory("w+") as directory:
+            compilation_result = os.path.join(directory, "output.js")
+            args += ['--output', compilation_result]
+            self.subprocess(args, StringIO(), cwd=source_dir)
+            with open(compilation_result, "r") as compilation_result_file:
+                shutil.copyfileobj(compilation_result_file, out)

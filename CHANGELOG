@@ -1,8 +1,9 @@
 # Changelog
 
 **0.2.0**
-  * Rework filter for elm 0.19 (`elm make`), with added support
-    for --optimize and --debug. Dropped support for Python 3.3
+  * Added support for Elm 0.19 (including --optimize and --debug options)
+  * Drop support for Elm 0.18 and older Elm versions
+  * Drop support for Python 3.3 and 3.4
 **0.1.7**
   * Add option to change directory before running `elm-make`
 **0.1.6**
