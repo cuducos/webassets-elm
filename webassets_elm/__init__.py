@@ -5,7 +5,7 @@ from tempfile import TemporaryDirectory
 
 from webassets.filter import ExternalTool
 
-__all__ = ('Elm')
+__all__ = ['Elm']
 
 
 class Elm(ExternalTool):
