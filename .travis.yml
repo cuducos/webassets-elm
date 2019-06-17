@@ -1,29 +1,20 @@
+dist: xenial  # support for Python >= 3.7
 language: python
-sudo: false
-
-branches:
-  only:
-    - master
-
 python:
-  - "3.6"
+  - 3.5
+  - 3.6
+  - 3.7
 
 matrix:
   include:
-    - python: 3.5
-      env:
-      - TOXENV=py35
-
-env:
-  - TOXENV=py33
-  - TOXENV=py34
-  - TOXENV=py36
-  - TOXENV=cover
+    - python: "3.7"
+      env: TOXENV=cover
+    - python: "3.7"
+      env: TOXENV=black
 
 install:
   - npm i -g elm
-  - elm-package install --yes
-  - pip install tox
+  - pip install tox-travis
 
 script:
   - tox

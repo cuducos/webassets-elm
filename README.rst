@@ -1,6 +1,3 @@
-Elm filter for webassets
-########################
-
 .. image:: https://img.shields.io/travis/cuducos/webassets-elm.svg?style=flat
   :target: https://travis-ci.org/cuducos/webassets-elm
   :alt: Travis CI
@@ -8,12 +5,6 @@ Elm filter for webassets
 .. image:: https://img.shields.io/coveralls/cuducos/webassets-elm.svg?style=flat
   :target: https://coveralls.io/github/cuducos/webassets-elm
   :alt: Covearge
-
-.. image:: https://landscape.io/github/cuducos/webassets-elm/master/landscape.svg?style=flat
-  :target: https://landscape.io/github/cuducos/webassets-elm/master
-  :alt: Code Health
-
-Filter for compiling `Elm <http://elm-lang.org>`_ files using `webassets <http://webassets.readthedocs.org>`_.
 
 .. image:: https://img.shields.io/pypi/status/webassets-elm.svg?style=flat
   :target: https://pypi.python.org/pypi/webassets-elm
@@ -31,12 +22,21 @@ Filter for compiling `Elm <http://elm-lang.org>`_ files using `webassets <http:/
   :target: https://pypi.python.org/pypi/webassets-elm
   :alt: License
 
+Elm filter for webassets
+########################
+
+Filter for compiling `Elm <http://elm-lang.org>`_ files using `webassets <http://webassets.readthedocs.org>`_.
+
 Install
 *******
 
 ::
 
     pip install webassets-elm
+
+As of version 0.2.0, this plugin requires **Elm 0.19** or newer (building with ``elm make``).
+
+If you need to build your Elm project with ``elm-make`` (Elm 0.18 and older), you can pin your ``webassets-elm`` package to version ``0.1.7``.
 
 Basic usage
 ***********
@@ -53,9 +53,11 @@ Settings
 
 **Optionally** as an evironment variable you can have:
 
-* `ELM_MAKE_BIN`: alternative path to `elm-make` if it is **not** available globally (e.g. `node_modules/.bin/elm-make`) 
+* ``ELM_BIN``: alternative path to ``elm`` if it is **not** available globally (e.g. ``node_modules/.bin/elm``).
 
-* `ELM_MAKE_CHANGE_DIRECTORY`: if set the filter will switch to `source_path` directory (where the main `.elm` is located) prior to compilation
+* ``ELM_OPTIMIZE``: enable the Elm compiler optimization option. Recommended for production output.
+
+* ``ELM_DEBUG``: enable the Elm compiler debug option.
 
 Examples
 ========
@@ -97,14 +99,11 @@ Contributing
 
 Feel free to `report an issue <http://github.com/cuducos/webassets-elm/issues>`_, `open a pull request <http://github.com/cuducos/webassets-elm/pulls>`_, or `drop a line <http://twitter.com/cuducos>`_.
 
-Don't forget to write and run tests:
+Don't forget to write and run tests, and format code with `Black <https://black.readthedocs.io/>`_:
 
 ::
 
     python setup.py test
+    black .
 
-You need `elm` binaries available to run tests. `Install Elm <http://elm-lang.org/install>`_ and then the required packages:
-
-::
-
-    elm-package install
+Please note you need ``elm`` binary available to run tests, here you can find different ways to `install Elm <http://elm-lang.org/install>`_.
