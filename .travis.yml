@@ -11,6 +11,8 @@ matrix:
   include:
     - python: "3.7"
       env: TOXENV=cover
+    - python: "3.7"
+      env: TOXENV=black
 
 install:
   - npm i -g elm

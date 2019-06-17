@@ -99,10 +99,11 @@ Contributing
 
 Feel free to `report an issue <http://github.com/cuducos/webassets-elm/issues>`_, `open a pull request <http://github.com/cuducos/webassets-elm/pulls>`_, or `drop a line <http://twitter.com/cuducos>`_.
 
-Don't forget to write and run tests:
+Don't forget to write and run tests, and format code with `Black <https://black.readthedocs.io/>`_:
 
 ::
 
     python setup.py test
+    black .
 
-You need ``elm`` binaries available to run tests, `install Elm <http://elm-lang.org/install>`_.
+Please note you need ``elm`` binary available to run tests, here you can find different ways to `install Elm <http://elm-lang.org/install>`_.
