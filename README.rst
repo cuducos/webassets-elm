@@ -53,11 +53,11 @@ Settings
 
 **Optionally** as an evironment variable you can have:
 
-* `ELM_BIN`: alternative path to `elm` if it is **not** available globally (e.g. `node_modules/.bin/elm`)
+* ``ELM_BIN``: alternative path to ``elm`` if it is **not** available globally (e.g. ``node_modules/.bin/elm``)
 
-* `ELM_OPTIMIZE`: enable the Elm compiler optimization option. Recommended for production output.
+* ``ELM_OPTIMIZE``: enable the Elm compiler optimization option. Recommended for production output.
 
-* `ELM_DEBUG`: enable the Elm compiler debug option.
+* ``ELM_DEBUG``: enable the Elm compiler debug option.
 
 Examples
 ========
@@ -105,7 +105,7 @@ Don't forget to write and run tests:
 
     python setup.py test
 
-You need `elm` binaries available to run tests. `Install Elm <http://elm-lang.org/install>`_ and then the required packages:
+You need ``elm`` binaries available to run tests. `Install Elm <http://elm-lang.org/install>`_ and then the required packages:
 
 ::
 
