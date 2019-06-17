@@ -28,25 +28,25 @@ ELMJSON = """
 class ElmFilterTestCase(TempEnvironmentHelper, TestCase):
 
     elm_code = 'import Html exposing (h1, text)\nmain = h1 [] [text "I<3elm"]'
-    default_files = {'main.elm': elm_code, 'elm.json': ELMJSON}
+    default_files = {"main.elm": elm_code, "elm.json": ELMJSON}
 
     def setUp(self):
         super(ElmFilterTestCase, self).setup()
 
     def test_elm_filter(self):
-        self.mkbundle('main.elm', filters='elm', output='app.js').build()
-        self.assertIn('I<3elm', self.get('app.js'))
-        self.assertIn('Compiled in DEV mode', self.get('app.js'))
-        self.assertNotIn('Compiled in DEBUG mode', self.get('app.js'))
+        self.mkbundle("main.elm", filters="elm", output="app.js").build()
+        self.assertIn("I<3elm", self.get("app.js"))
+        self.assertIn("Compiled in DEV mode", self.get("app.js"))
+        self.assertNotIn("Compiled in DEBUG mode", self.get("app.js"))
 
     def test_elm_filter_optimized(self):
-        self.env.config['ELM_OPTIMIZE'] = True
-        self.mkbundle('main.elm', filters='elm', output='app.js').build()
-        self.assertNotIn('Compiled in DEV mode', self.get('app.js'))
-        self.assertNotIn('Compiled in DEBUG mode', self.get('app.js'))
+        self.env.config["ELM_OPTIMIZE"] = True
+        self.mkbundle("main.elm", filters="elm", output="app.js").build()
+        self.assertNotIn("Compiled in DEV mode", self.get("app.js"))
+        self.assertNotIn("Compiled in DEBUG mode", self.get("app.js"))
 
     def test_elm_filter_debug(self):
-        self.env.config['ELM_DEBUG'] = True
-        self.mkbundle('main.elm', filters='elm', output='app.js').build()
-        self.assertNotIn('Compiled in DEV mode', self.get('app.js'))
-        self.assertIn('Compiled in DEBUG mode', self.get('app.js'))
+        self.env.config["ELM_DEBUG"] = True
+        self.mkbundle("main.elm", filters="elm", output="app.js").build()
+        self.assertNotIn("Compiled in DEV mode", self.get("app.js"))
+        self.assertIn("Compiled in DEBUG mode", self.get("app.js"))

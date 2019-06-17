@@ -5,7 +5,7 @@ from tempfile import TemporaryDirectory
 
 from webassets.filter import ExternalTool
 
-__all__ = ['Elm']
+__all__ = ["Elm"]
 
 
 class Elm(ExternalTool):
@@ -28,12 +28,8 @@ class Elm(ExternalTool):
 
     """
 
-    name = 'elm'
-    options = {
-        'binary': 'ELM_BIN',
-        'optimize': 'ELM_OPTIMIZE',
-        'debug': 'ELM_DEBUG'
-    }
+    name = "elm"
+    options = {"binary": "ELM_BIN", "optimize": "ELM_OPTIMIZE", "debug": "ELM_DEBUG"}
     max_debug_level = None
 
     def input(self, _in, out, **kw):
@@ -43,18 +39,18 @@ class Elm(ExternalTool):
         write the compiled contents to a temporary file and then read it in
         order to output to stdout.
         """
-        elm = self.binary or 'elm'
-        source = kw['source_path']
+        elm = self.binary or "elm"
+        source = kw["source_path"]
         source_dir = os.path.dirname(source)
-        args = [elm, 'make', source]
+        args = [elm, "make", source]
         if self.optimize:
-            args.append('--optimize')
+            args.append("--optimize")
         if self.debug:
-            args.append('--debug')
+            args.append("--debug")
 
         with TemporaryDirectory("w+") as directory:
             compilation_result = os.path.join(directory, "output.js")
-            args += ['--output', compilation_result]
+            args += ["--output", compilation_result]
             self.subprocess(args, StringIO(), cwd=source_dir)
             with open(compilation_result, "r") as compilation_result_file:
                 shutil.copyfileobj(compilation_result_file, out)
