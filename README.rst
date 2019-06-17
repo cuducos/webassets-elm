@@ -9,10 +9,6 @@ Elm filter for webassets
   :target: https://coveralls.io/github/cuducos/webassets-elm
   :alt: Covearge
 
-.. image:: https://landscape.io/github/cuducos/webassets-elm/master/landscape.svg?style=flat
-  :target: https://landscape.io/github/cuducos/webassets-elm/master
-  :alt: Code Health
-
 Filter for compiling `Elm <http://elm-lang.org>`_ files using `webassets <http://webassets.readthedocs.org>`_.
 
 .. image:: https://img.shields.io/pypi/status/webassets-elm.svg?style=flat
