@@ -1,6 +1,5 @@
-import os.path
-import shutil
 from io import StringIO
+from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from webassets.filter import ExternalTool
@@ -38,17 +37,19 @@ class Elm(ExternalTool):
         write the compiled contents to a temporary file and then read it in
         order to output to stdout."""
         elm = self.binary or "elm"
-        source = kw["source_path"]
-        source_dir = os.path.dirname(source)
-        args = [elm, "make", source]
-        if self.optimize:
-            args.append("--optimize")
-        if self.debug:
-            args.append("--debug")
+        source = Path(kw["source_path"])
 
-        with TemporaryDirectory() as directory:
-            compilation_result = os.path.join(directory, "output.js")
-            args += ["--output", compilation_result]
-            self.subprocess(args, StringIO(), cwd=source_dir)
-            with open(compilation_result, "r") as compilation_result_file:
-                shutil.copyfileobj(compilation_result_file, out)
+        assert source.exists()
+        assert source.is_file()
+
+        command = [elm, "make", str(source)]
+        if self.optimize:
+            command.append("--optimize")
+        if self.debug:
+            command.append("--debug")
+
+        with TemporaryDirectory() as directory, StringIO() as buffer_:
+            compiled = Path(directory) / "output.js"
+            command.extend(["--output", str(compiled)])
+            self.subprocess(command, buffer_, cwd=str(source.parent))
+            print(compiled.read_text(), file=out)
