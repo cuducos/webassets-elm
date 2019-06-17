@@ -27,6 +27,6 @@ setup(
     test_suite="nose.collector",
     tests_require=["nose"],
     url="https://github.com/cuducos/webassets-elm",
-    version="0.2.0",
+    version="0.2.1",
     zip_safe=False,
 )
