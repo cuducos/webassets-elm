@@ -48,7 +48,7 @@ class Elm(ExternalTool):
         if self.debug:
             args.append("--debug")
 
-        with TemporaryDirectory("w+") as directory:
+        with TemporaryDirectory() as directory:
             compilation_result = os.path.join(directory, "output.js")
             args += ["--output", compilation_result]
             self.subprocess(args, StringIO(), cwd=source_dir)
