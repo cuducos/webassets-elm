@@ -38,6 +38,10 @@ Install
 
     pip install webassets-elm
 
+As of version 0.2.0, this plugin requires Elm 0.19 or newer (building with ``elm make``)
+
+If you need to build your Elm project with ``elm-make`` (Elm 0.18 and before), you can pin your ``webassets-elm`` package to version 0.1.7.
+
 Basic usage
 ***********
 
