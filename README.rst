@@ -109,8 +109,4 @@ Don't forget to write and run tests:
 
     python setup.py test
 
-You need ``elm`` binaries available to run tests. `Install Elm <http://elm-lang.org/install>`_ and then the required packages:
-
-::
-
-    elm-package install
+You need ``elm`` binaries available to run tests, `install Elm <http://elm-lang.org/install>`_
