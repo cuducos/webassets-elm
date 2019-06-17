@@ -5,7 +5,7 @@ from tempfile import TemporaryDirectory
 
 from webassets.filter import ExternalTool
 
-__all__ = ["Elm"]
+__all__ = ("Elm",)
 
 
 class Elm(ExternalTool):
@@ -15,7 +15,7 @@ class Elm(ExternalTool):
 
     Supports the following external configuration:
 
-    ELM_BIN
+    ELM_BIN (string, path to Elm binary)
         The path to the ``elm`` binary. If not set, assumes ``elm``
         is in the system path.
 
@@ -33,12 +33,10 @@ class Elm(ExternalTool):
     max_debug_level = None
 
     def input(self, _in, out, **kw):
-        """
-        Currently Elm does not write to stdout
+        """Currently Elm does not write to stdout
         (https://github.com/elm-lang/elm-make/issues/177), so we need to
         write the compiled contents to a temporary file and then read it in
-        order to output to stdout.
-        """
+        order to output to stdout."""
         elm = self.binary or "elm"
         source = kw["source_path"]
         source_dir = os.path.dirname(source)

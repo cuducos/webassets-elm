@@ -1,6 +1,3 @@
-Elm filter for webassets
-########################
-
 .. image:: https://img.shields.io/travis/cuducos/webassets-elm.svg?style=flat
   :target: https://travis-ci.org/cuducos/webassets-elm
   :alt: Travis CI
@@ -8,8 +5,6 @@ Elm filter for webassets
 .. image:: https://img.shields.io/coveralls/cuducos/webassets-elm.svg?style=flat
   :target: https://coveralls.io/github/cuducos/webassets-elm
   :alt: Covearge
-
-Filter for compiling `Elm <http://elm-lang.org>`_ files using `webassets <http://webassets.readthedocs.org>`_.
 
 .. image:: https://img.shields.io/pypi/status/webassets-elm.svg?style=flat
   :target: https://pypi.python.org/pypi/webassets-elm
@@ -27,6 +22,11 @@ Filter for compiling `Elm <http://elm-lang.org>`_ files using `webassets <http:/
   :target: https://pypi.python.org/pypi/webassets-elm
   :alt: License
 
+Elm filter for webassets
+########################
+
+Filter for compiling `Elm <http://elm-lang.org>`_ files using `webassets <http://webassets.readthedocs.org>`_.
+
 Install
 *******
 
@@ -34,9 +34,9 @@ Install
 
     pip install webassets-elm
 
-As of version 0.2.0, this plugin requires Elm 0.19 or newer (building with ``elm make``)
+As of version 0.2.0, this plugin requires **Elm 0.19** or newer (building with ``elm make``).
 
-If you need to build your Elm project with ``elm-make`` (Elm 0.18 and before), you can pin your ``webassets-elm`` package to version 0.1.7.
+If you need to build your Elm project with ``elm-make`` (Elm 0.18 and older), you can pin your ``webassets-elm`` package to version ``0.1.7``.
 
 Basic usage
 ***********
@@ -53,7 +53,7 @@ Settings
 
 **Optionally** as an evironment variable you can have:
 
-* ``ELM_BIN``: alternative path to ``elm`` if it is **not** available globally (e.g. ``node_modules/.bin/elm``)
+* ``ELM_BIN``: alternative path to ``elm`` if it is **not** available globally (e.g. ``node_modules/.bin/elm``).
 
 * ``ELM_OPTIMIZE``: enable the Elm compiler optimization option. Recommended for production output.
 
