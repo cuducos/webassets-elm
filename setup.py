@@ -1,5 +1,5 @@
 from pathlib import Path
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 setup(
@@ -16,14 +16,14 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
     ],
-    python_requires=">=3.5",
     description="Elm filter for webassets",
     install_requires=["webassets"],
     keywords=["elm", "webassets", "assets", "django", "flask"],
     license="MIT",
     long_description=Path("README.rst").read_text(),
     name="webassets-elm",
-    packages=find_packages(),
+    py_modules=["webassets_elm"],
+    python_requires=">=3.5",
     test_suite="nose.collector",
     tests_require=["nose"],
     url="https://github.com/cuducos/webassets-elm",
