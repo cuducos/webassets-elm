@@ -1,0 +1,38 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7.17"]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: |
+          npm install -g elm
+          pip install tox
+      - name: Run Tox
+        run: |
+          if [[ "${{ matrix.python-version }}" == "3.7" ]]; then
+            if [[ "${{ github.event_name }}" == "push" ]]; then
+              echo "Running tests for cover and black"
+              tox -e cover
+              tox -e black
+            else
+              tox
+            fi
+          else
+            tox
+          fi
+      - name: Coveralls
+        if: success() && github.event_name == 'push' && matrix.python-version == '3.7'
+        run: coveralls
+
