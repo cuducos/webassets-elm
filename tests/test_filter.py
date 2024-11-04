@@ -3,6 +3,7 @@ from unittest import TestCase
 
 from webassets.filter import register_filter
 from webassets.test import TempEnvironmentHelper
+
 from webassets_elm import Elm
 
 MAIN = Path(__file__).parent / "Main.elm"

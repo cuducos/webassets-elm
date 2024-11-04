@@ -1,10 +1,6 @@
-.. image:: https://img.shields.io/travis/cuducos/webassets-elm.svg?style=flat
-  :target: https://travis-ci.org/cuducos/webassets-elm
+.. image:: https://img.shields.io/github/actions/workflow/status/cuducos/webassets-elm/tests.yml?style=flat
+  :target: https://github.com/cuducos/webassets-elm/actions/workflows/tests.yml
   :alt: Travis CI
-
-.. image:: https://img.shields.io/coveralls/cuducos/webassets-elm.svg?style=flat
-  :target: https://coveralls.io/github/cuducos/webassets-elm
-  :alt: Covearge
 
 .. image:: https://img.shields.io/pypi/status/webassets-elm.svg?style=flat
   :target: https://pypi.python.org/pypi/webassets-elm
@@ -33,6 +29,10 @@ Install
 ::
 
     pip install webassets-elm
+
+
+Elm versions
+============
 
 As of version 0.2.0, this plugin requires **Elm 0.19** or newer (building with ``elm make``).
 
@@ -97,13 +97,12 @@ Django with `django-assets <http://django-assets.readthedocs.org>`_
 Contributing
 ============
 
-Feel free to `report an issue <http://github.com/cuducos/webassets-elm/issues>`_, `open a pull request <http://github.com/cuducos/webassets-elm/pulls>`_, or `drop a line <http://twitter.com/cuducos>`_.
+Feel free to `report an issue <http://github.com/cuducos/webassets-elm/issues>`_, `open a pull request <http://github.com/cuducos/webassets-elm/pulls>`_, or `drop <http://tech.lgbt/@cuducos>`_ a `line <https://bsky.app/profile/cuducos.me>`_.
 
-Don't forget to write and run tests, and format code with `Black <https://black.readthedocs.io/>`_:
+Don't forget to write and run tests, and format code:
 
 ::
 
-    python setup.py test
-    black .
+    uv run pytest
 
 Please note you need ``elm`` binary available to run tests, here you can find different ways to `install Elm <http://elm-lang.org/install>`_.

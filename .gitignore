@@ -8,13 +8,3 @@ dist/
 # Elm
 elm-stuff/
 node_modules/
-
-# Python third-party packages
-.coverage
-.python-version
-.tox
-cover/
-
-# OS, IDE & editor
-.DS_Store
-.ropeproject/
