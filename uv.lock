@@ -134,7 +134,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "webassets" }]
+requires-dist = [{ name = "webassets", specifier = ">=2.0,<3" }]
 
 [package.metadata.requires-dev]
 dev = [
